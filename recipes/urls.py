@@ -1,8 +1,11 @@
 
 from django.urls import path
 
-from recipes.views import home
+from . import views
 
 urlpatterns = [
-    path('', home),
+    path('', views.home),
+    # criando url dinâmica (com id de inteiros)
+    # importante ter um padrão para evitar brechas de segurança
+    path('recipes/<int:id>/', views.recipe),
 ]
